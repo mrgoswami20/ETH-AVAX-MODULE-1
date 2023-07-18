@@ -1,0 +1,19 @@
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.7.0;
+
+contract myToken {
+
+    function createToken(uint _balances) public pure {
+        require(_balances > 100,"To create a token, your balance should be above 100. ");
+    }
+    
+    function revertToken(uint _balances) public pure {
+        if(_balances <= 100){
+            revert("Your token was not created, due to insufficient balance.");
+        }
+    }
+
+    function assertToken(uint _balances) public pure {
+        assert(_balances==0);
+    }
+}
